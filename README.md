@@ -3,10 +3,12 @@ H4D - CSCI599
 
 - This repository caters to the development of technology for the linguist soldiers at 341st MI Bn (US Army).
 ## About
-<hr>
+- An assistive dashboard that aids linguists with their translations by providing language processing capabilities and resource lookups.
 
 ## How our MVP looks
 <hr>
+<img src="https://github.com/pratulyab/translation-on-demand/blob/master/images/mvp.png">
+<img src="https://github.com/pratulyab/translation-on-demand/blob/master/images/dashboard.png">
 
 ## Resources
 * Crosslingual Embeddings
