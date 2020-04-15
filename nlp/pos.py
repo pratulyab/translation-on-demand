@@ -1,3 +1,13 @@
+# NLP Task - POS
+# AllenNLP/SpaCy/FlairNLP/Pre-trained models
+# Return JSON as:
+# {
+# 'tag1': [1, 10, 11, 14, 23] # list of indices of words in text that belong to this tag,
+# 'tag2': [35, 36],
+# ...
+# }
+# Scale to different languages as discussed
+
 #flair imports
 from flair.data import Sentence
 from flair.models import SequenceTagger
@@ -24,12 +34,15 @@ def flair_ner():
             index = index[:endl]
             temp[word.tag] = list()
             temp[word.tag].append(index)
-    print(temp)
+   # print(temp)
     return temp
        # print(dir(entity))
-    
+
+def ret_json(jsDict):
+    newJson = json.dumps(jsDict)
+    print(newJson)
 
 if __name__ == "__main__":
     print ("flair -- POS ")
     flairNerDict = flair_ner()
-  #  ret_json(flairNerDict)
+    ret_json(flairNerDict)
