@@ -36,6 +36,7 @@ def default_tokenizer(text, lang='english', remove_stopwords=True, remove_punct=
 			stopwords = nltk.corpus.stopwords.words(lang)
 			if remove_punct:
 				stopwords.extend(list(string.punctuation))
+				stopwords.extend(['`', '``'])
 			words = [word for word in words if word and word not in stopwords]
 
 		tokenized.append(words)

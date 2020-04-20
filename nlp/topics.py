@@ -1,5 +1,6 @@
 from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
 from .preprocessing import *
+import gensim
 
 
 def get_keywords(text, lang='english', n=10):
@@ -32,9 +33,31 @@ def get_keywords(text, lang='english', n=10):
 def get_topics(documents, lang='english', n=6):
 	''' Return topics from a set of docs '''
 
-	pass
-	if len(documents) == 1:
-		# return top 'n' important keywords
-		return get_keywords(documents[0], lang=lang, n=n)
+	if not isinstance(documents, list):
+		documents = [documents]
+
+	docs = []
+	for document in documents:
+		doc = None
+		if lang == 'chinese':
+			tokens = chinese_tokenizer(document)
+		else:
+			tokens = []
+			[tokens.extend(sent) for sent in default_tokenizer(document, lang=lang, remove_punct=True)]
+		docs.append(tokens)
+
+	dictionary = gensim.corpora.Dictionary(docs)
+	doc_term_matrix = [dictionary.doc2bow(doc) for doc in docs]
+
+	lda_model = gensim.models.ldamodel.LdaModel(doc_term_matrix, num_topics=min(len(docs), n), id2word=dictionary, passes=50)
+
+	topics = [topic[1] for topic in lda_model.show_topics()]
+	topics = [topic.split('"')[1::2] for topic in topics]
+
+	return topics
+
+#	if len(documents) == 1:
+#		# return top 'n' important keywords
+#		return get_keywords(documents[0], lang=lang, n=n)
 
 	

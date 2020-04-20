@@ -16,7 +16,7 @@ def generate_wordcloud(text, lang='english', save=False, show=False):
 		d = os.path.dirname(__file__) if "__file__" in locals() else os.getcwd()
 		font_path = os.path.join(d, 'nlp/wc_cn/SourceHanSerifK-Light.otf')
 
-		wc = WordCloud(font_path=font_path, height=860, width=1000, margin=2, max_font_size=100)
+		wc = WordCloud(font_path=font_path, background_color='white', height=860, width=1000, margin=2, max_font_size=100)
 		wc.generate(text)
 
 	else:
