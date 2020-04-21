@@ -12,7 +12,7 @@
 import json
 
 #spacy imports
-import spacy
+#import spacy
 
 #flair imports
 from flair.data import Sentence
@@ -35,9 +35,12 @@ def spacy_ner():
     return temp
 
 
-def flair_ner():
-    sentence = Sentence("Apple is looking at buying U.K. startup for $1 billion but Apple is being sued by donald trump for fraud against the WHO..")
-    tagger = SequenceTagger.load('ner')
+def flair_ner(lanugage, input):
+    sentence = Sentence(input)
+    if(lanugage == "french"):
+        tagger = SequenceTagger.load('fr-ner')
+    else:
+        tagger = SequenceTagger.load('ner')
     tagger.predict(sentence)
     print(sentence)
     print('The following NER tags are found:')
@@ -64,9 +67,13 @@ def ret_json(jsDict):
     print(newJson)
 
 if __name__ == "__main__":
-    spacyNerDict = spacy_ner()
-    print("spacy -- NER")
-    ret_json(spacyNerDict)
-    print ("flair -- NER ")
-    flairNerDict = flair_ner()
+   # spacyNerDict = spacy_ner()
+   # print("spacy -- NER")
+   # ret_json(spacyNerDict)
+    print ("flair -- NER -- French")
+    flairNerDict = flair_ner("french", "C'est tout simplement du jamais vu dans l'histoire pourtant tumultueuse du marché du pétrole. Le prix du baril de brut texan, le WTI, référence du marché américain, s'est littéralement effondré lundi. Sa valeur s'est volatilisée, annihilée même. En début de soirée à Paris, il cotait moins de 1 dollar. Puis il a basculé en territoire inconnu, en-dessous de zéro! Une chute de 95% dans la journée, atteignant finalement 100%, qui défie le sens commun. Cette incongruité est bel et bien une conséquence de la pandémie de Covid-19 et du Grand confinement, comme le désigne le Fonds monetaire international (FMI). Cette chute vertigineuse du WTI sur le marché américain ne signifie pas pour autant que le pétrole ne vaut absolument plus rien dans le monde entier. Le baril de Brent, produit en mer du Nord, la principale référence du marché mondial, a certes dévissé, mais d'«à peine» 6% et oscillait autour de 26 dollars.")
+    ret_json(flairNerDict)
+
+    print ("flair -- NER -- English")
+    flairNerDict = flair_ner("english", "South Carolina allowed retail shops ranging from department stores to flea markets to reopen Monday afternoon, shortly after its governor, Henry McMaster, signed an executive order reversing some of the closings he ordered earlier this month. On Friday, residents of Georgia will be allowed to return to the gym and get haircuts, pedicures, massages and tattoos, Gov. Brian Kemp said. Next Monday, they can dine in restaurants and go to the movies. Tennessee's stay-at-home order will expire April 30, allowing most businesses there to reopen on May 1, Gov. Bill Lee said.")
     ret_json(flairNerDict)
