@@ -1,0 +1,66 @@
+.tagger {
+    margin: 0;
+    padding: 0;
+    width: 400px;
+    background-color: #ffffff;
+    position: fixed;
+    height: 50%;
+    overflow: auto;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.05);
+}
+
+.tagger::-webkit-scrollbar {
+  display: none;
+}
+
+.add-chip {
+    width: 80%;
+    left: 0;
+    text-align: center;
+    /* margin: 0 auto; */
+    background-color: #f1f1f1;
+    display: inline-block;
+    height: 30px;  
+  }
+
+.yellow-chip {
+    width: 80%;
+    left: 0;
+    text-align: center;
+    /* margin: 0 auto; */
+    background-color: #fdfd77;
+    display: inline-block;
+    border-radius: 10px;
+    /* margin: 32px; */
+    height: 30px;  
+  }
+  
+  .green-chip {
+    width: 80%;
+    left: 0;
+    text-align: center;
+    background-color: #62f963;
+    display: inline-block;
+    border-radius: 10px;
+    height: 30px;
+  }
+  
+  .pink-chip {
+    width: 80%;
+    left: 0;
+    text-align: center;
+    background-color: #fc7999;
+    display: inline-block;
+    border-radius: 10px;
+    height: 30px;
+  }
+  
+  .blue-chip {
+    width: 80%;
+    left: 0;
+    text-align: center;
+    background-color: #73cdfd;
+    display: inline-block;
+    border-radius: 10px;
+    height: 30px;
+  }
