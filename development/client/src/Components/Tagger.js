@@ -19,24 +19,24 @@ class Tagger extends React.Component {
           <div className="add-chip"><Input placeholder="Add label"/></div>
           <PlusOutlined style={{fontSize: '16px', marginLeft: "16px"}}/>
         </div>
+        
+        <div style={{marginLeft: "32px", marginBottom: "24px", textAlign: "left"}}>
+            <div className="green-chip"><Title level={4}>Noun</Title></div>
+          <CloseOutlined style={{fontSize: '16px', marginLeft: "16px"}}/>
+        </div>
 
         <div style={{marginLeft: "32px", marginBottom: "24px", textAlign: "left"}}>
-          <div className="yellow-chip"><Title level={4}>Person</Title></div>
+          <div className="yellow-chip"><Title level={4}>Verb</Title></div>
           <CloseOutlined style={{fontSize: '16px', marginLeft: "16px"}}/>
         </div>
         
         <div style={{marginLeft: "32px", marginBottom: "24px", textAlign: "left"}}>
-            <div className="green-chip"><Title level={4}>Organization</Title></div>
+            <div className="pink-chip"><Title level={4}>Adjective</Title></div>
           <CloseOutlined style={{fontSize: '16px', marginLeft: "16px"}}/>
         </div>
         
         <div style={{marginLeft: "32px", marginBottom: "24px", textAlign: "left"}}>
-            <div className="pink-chip"><Title level={4}>GRE</Title></div>
-          <CloseOutlined style={{fontSize: '16px', marginLeft: "16px"}}/>
-        </div>
-        
-        <div style={{marginLeft: "32px", marginBottom: "24px", textAlign: "left"}}>
-            <div className="blue-chip"><Title level={4}>Date</Title></div>
+            <div className="blue-chip"><Title level={4}>Punctuation</Title></div>
           <CloseOutlined style={{fontSize: '16px', marginLeft: "16px"}}/>
         </div>
       </div>
